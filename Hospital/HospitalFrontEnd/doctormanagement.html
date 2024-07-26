@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #495057;
+            background-color: #e9ecef;
+            border-color: #dee2e6 #dee2e6 #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Doctor Management System</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="true">Register New Doctor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="update-tab" data-toggle="tab" href="#update" role="tab" aria-controls="update" aria-selected="false">Update Doctor Details</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false">View Doctor Schedules</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="register" role="tabpanel" aria-labelledby="register-tab">
+                <form id="registerForm" class="mt-4">
+                    <div class="form-group">
+                        <label for="registerName">Name</label>
+                        <input type="text" class="form-control" id="registerName" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerSpecialty">Specialty</label>
+                        <input type="text" class="form-control" id="registerSpecialty" placeholder="Enter specialty">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPhone">Phone Number</label>
+                        <input type="tel" class="form-control" id="registerPhone" placeholder="Enter phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerAddress">Address</label>
+                        <input type="Address" class="form-control" id="registerAddress" placeholder="Enter Address">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="registerDoctor()">Register</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
+                <form id="updateForm" class="mt-4">
+                    <div class="form-group">
+                        <label for="updateId">Doctor ID</label>
+                        <input type="text" class="form-control" id="updateId" placeholder="Enter doctor ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateName">Name</label>
+                        <input type="text" class="form-control" id="updateName" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateSpecialty">Specialty</label>
+                        <input type="text" class="form-control" id="updateSpecialty" placeholder="Enter specialty">
+                    </div>
+                    <div class="form-group">
+                        <label for="updatePhone">Phone Number</label>
+                        <input type="tel" class="form-control" id="updatePhone" placeholder="Enter phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateAddress">Address</label>
+                        <input type="Address" class="form-control" id="updateAddress" placeholder="Enter Address">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="updateDoctor()">Update</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="schedule" role="tabpanel" aria-labelledby="schedule-tab">
+                <form id="scheduleForm" class="mt-4">
+                    <div class="form-group">
+                        <label for="scheduleId">Doctor ID</label>
+                        <input type="text" class="form-control" id="scheduleId" placeholder="Enter doctor ID">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="viewSchedule()">View Schedule</button>
+                </form>
+                <div id="scheduleResult" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function registerDoctor() {
+            const name = document.getElementById('registerName').value;
+            const specialty = document.getElementById('registerSpecialty').value;
+            const phone = document.getElementById('registerPhone').value;
+            const Address = document.getElementById('registerAddress').value;
+            // You can add your own logic to store this information in your database
+            alert(`Doctor Registered:\nName: ${name}\nSpecialty: ${specialty}\nPhone Number: ${phone}\nAddress: ${Address}`);
+        }
+
+        function updateDoctor() {
+            const id = document.getElementById('updateId').value;
+            const name = document.getElementById('updateName').value;
+            const specialty = document.getElementById('updateSpecialty').value;
+            const phone = document.getElementById('updatePhone').value;
+            const Address = document.getElementById('updateAddress').value;
+            // You can add your own logic to update this information in your database
+            alert(`Doctor Updated:\nID: ${id}\nName: ${name}\nSpecialty: ${specialty}\nPhone Number: ${phone}\nAddress: ${Address}`);
+        }
+
+        function viewSchedule() {
+            const id = document.getElementById('scheduleId').value;
+            // You can add your own logic to retrieve this information from your database
+            document.getElementById('scheduleResult').innerHTML = `Displaying schedule for doctor ID: ${id}`;
+        }
+    </script>
+</body>
+</html>
