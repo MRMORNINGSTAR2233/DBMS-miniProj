@@ -90,7 +90,6 @@
             const name = document.getElementById('registerName').value;
             const phoneNumber = document.getElementById('registerAge').value;
             const address = document.getElementById('registerAddress').value;
-            // You can add your own logic to store this information in your database
             alert(`Patient Registered:\nName: ${name}\nPhone Number: ${phoneNumber}\nAddress: ${address}`);
         }
 
@@ -99,13 +98,11 @@
             const name = document.getElementById('updateName').value;
             const phoneNumber = document.getElementById('updateAge').value;
             const address = document.getElementById('updateAddress').value;
-            // You can add your own logic to update this information in your database
             alert(`Patient Updated:\nID: ${id}\nName: ${name}\nPhone Number: ${phoneNumber}\nAddress: ${address}`);
         }
 
         function viewHistory() {
             const id = document.getElementById('historyId').value;
-            // You can add your own logic to retrieve this information from your database
             document.getElementById('historyResult').innerHTML = `Displaying history for patient ID: ${id}`;
         }
     </script>
