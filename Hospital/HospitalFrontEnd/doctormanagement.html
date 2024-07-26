@@ -99,7 +99,6 @@
             const specialty = document.getElementById('registerSpecialty').value;
             const phone = document.getElementById('registerPhone').value;
             const Address = document.getElementById('registerAddress').value;
-            // You can add your own logic to store this information in your database
             alert(`Doctor Registered:\nName: ${name}\nSpecialty: ${specialty}\nPhone Number: ${phone}\nAddress: ${Address}`);
         }
 
@@ -109,13 +108,11 @@
             const specialty = document.getElementById('updateSpecialty').value;
             const phone = document.getElementById('updatePhone').value;
             const Address = document.getElementById('updateAddress').value;
-            // You can add your own logic to update this information in your database
             alert(`Doctor Updated:\nID: ${id}\nName: ${name}\nSpecialty: ${specialty}\nPhone Number: ${phone}\nAddress: ${Address}`);
         }
 
         function viewSchedule() {
             const id = document.getElementById('scheduleId').value;
-            // You can add your own logic to retrieve this information from your database
             document.getElementById('scheduleResult').innerHTML = `Displaying schedule for doctor ID: ${id}`;
         }
     </script>
