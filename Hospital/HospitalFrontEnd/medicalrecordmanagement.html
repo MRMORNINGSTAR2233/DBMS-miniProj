@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Records Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #495057;
+            background-color: #e9ecef;
+            border-color: #dee2e6 #dee2e6 #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Medical Records Management System</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="add-tab" data-toggle="tab" href="#add" role="tab" aria-controls="add" aria-selected="true">Add New Record</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="update-tab" data-toggle="tab" href="#update" role="tab" aria-controls="update" aria-selected="false">Update Record</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">View Medical History</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="add-tab">
+                <form id="addForm" class="mt-4">
+                    <div class="form-group">
+                        <label for="addPatientId">Patient ID</label>
+                        <input type="text" class="form-control" id="addPatientId" placeholder="Enter patient ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="addPatientName">Patient Name</label>
+                        <input type="text" class="form-control" id="addPatientName" placeholder="Enter patient name">
+                    </div>
+                    <div class="form-group">
+                        <label for="addDoctor">Doctor</label>
+                        <input type="text" class="form-control" id="addDoctor" placeholder="Enter doctor's name">
+                    </div>
+                    <div class="form-group">
+                        <label for="addRecordDate">Date</label>
+                        <input type="date" class="form-control" id="addRecordDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="addRecordDetails">Record Details</label>
+                        <textarea class="form-control" id="addRecordDetails" rows="3" placeholder="Enter medical record details"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="addMedicalRecord()">Add Record</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
+                <form id="updateForm" class="mt-4">
+                    <div class="form-group">
+                        <label for="updatePatientId">Patient ID</label>
+                        <input type="text" class="form-control" id="updatePatientId" placeholder="Enter patient ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateDoctor">Doctor</label>
+                        <input type="text" class="form-control" id="updateDoctor" placeholder="Enter doctor's name">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateRecordDate">Date</label>
+                        <input type="date" class="form-control" id="updateRecordDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateRecordDetails">New Record Details</label>
+                        <textarea class="form-control" id="updateRecordDetails" rows="3" placeholder="Enter updated medical record details"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="updateMedicalRecord()">Update Record</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+                <form id="historyForm" class="mt-4">
+                    <div class="form-group">
+                        <label for="historyPatientId">Patient ID</label>
+                        <input type="text" class="form-control" id="historyPatientId" placeholder="Enter patient ID">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="viewMedicalHistory()">View History</button>
+                </form>
+                <div id="historyResult" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function addMedicalRecord() {
+            const patientId = document.getElementById('addPatientId').value;
+            const patientName = document.getElementById('addPatientName').value;
+            const doctor = document.getElementById('addDoctor').value;
+            const date = document.getElementById('addRecordDate').value;
+            const details = document.getElementById('addRecordDetails').value;
+            alert(`Medical Record Added:\nPatient ID: ${patientId}\nPatient Name: ${patientName}\nDoctor: ${doctor}\nDate: ${date}\nDetails: ${details}`);
+        }
+
+        function updateMedicalRecord() {
+            const patientId = document.getElementById('updatePatientId').value;
+            const doctor = document.getElementById('updateDoctor').value;
+            const date = document.getElementById('updateRecordDate').value;
+            const details = document.getElementById('updateRecordDetails').value;
+            alert(`Medical Record Updated:\nPatient ID: ${patientId}\nDoctor: ${doctor}\nDate: ${date}\nNew Details: ${details}`);
+        }
+
+        function viewMedicalHistory() {
+            const patientId = document.getElementById('historyPatientId').value;
+            document.getElementById('historyResult').innerHTML = `Displaying medical history for patient ID: ${patientId}`;
+        }
+    </script>
+</body>
+</html>
