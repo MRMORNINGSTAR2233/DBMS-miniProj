@@ -1,5 +1,0 @@
-django
-postgres
-psycopg
-python-dotenv
-cors
